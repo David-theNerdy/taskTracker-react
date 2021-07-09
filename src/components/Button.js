@@ -20,6 +20,7 @@ const Button = ({color,text,onClick}) => {
 
 Button.defaultProps = {
     color: 'green', ///???? what is this color belonged to?
+    //overrided by setting color in Header.js
 }
 
 Button.propTypes = {

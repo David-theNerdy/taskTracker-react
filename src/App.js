@@ -1,55 +1,65 @@
+// @ts-nocheck
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import { useState } from 'react';
-
+import  AddTask  from "./components/AddTask";
 
 function App() {
-  const [tasks,setTasks] = useState( [
+  const [tasks, setTasks] = useState([
     //this is an immutable array, so if you want to update it, you have to use setTasks, make a copy and then update tasks.
     //put element here make it a global variable, so it can be accessed any where in your app
     {
-        id:1,
-        text: 'Doctore App',
-        date: 'Monday',
-        time: "9pm",
-        reminder: true,
+      id: 1,
+      text: 'Doctore App',
+      date: 'Monday',
+      time: "9pm",
+      reminder: true,
     },
     {
-        id:2,
-        text: 'Meeting',
-        date: 'Tuesday',
-        time: "6am",
-        reminder: true,
+      id: 2,
+      text: 'Meeting',
+      date: 'Tuesday',
+      time: "6am",
+      reminder: true,
     },
     {
-        id:3,
-        text: 'Study',
-        date: "Wed",
-        time: "12m",
-        reminder: false,
+      id: 3,
+      text: 'Study',
+      date: "Wed",
+      time: "12m",
+      reminder: false,
     },
-]);
+  ]);
+  
+  //Add Task
+  const addTask = (newTask) =>{
+    newTask.id = tasks.length+1;
+    //Reminder: Because task here is an aray so .length works, not in the case of Object! (alternative is Map object)
+    setTasks(tasks.concat(newTask))
+  }
 
-//Delete Task
-const deleteTask =(id)=>{
-  setTasks(tasks.filter(el => el.id !== id))
-  //notice that we have to use method that return a new array here because the tasks is immutable by default. Same for the toggle reminder below
-};
-//Toggle Reminder
-const toggleReminder=(id)=>{
-  setTasks(tasks.map(el => 
-    el.id === id ? {...el,reminder: !el.reminder} : el));
-};
+  //Delete Task
+  const deleteTask = (id) => {
+    setTasks(tasks.filter(el => el.id !== id))
+    //notice that we have to use method that return a new array here because the tasks (useState) is immutable by default. Same for the toggle reminder below
+  };
+  //Toggle Reminder
+  const toggleReminder = (id) => {
+    setTasks(tasks.map(el =>
+      el.id === id ? { ...el, reminder: !el.reminder } : el));
+  };
 
 
   return (
     <div className="container">
       <Header />
-    {tasks.length >0 ? <Tasks  x={tasks} 
-    onDelete = {deleteTask} 
-    onToggle={toggleReminder}/> : <h3>Find things to do cuzzy</h3>}
+      <AddTask onAdd={addTask}/>
+
+      {tasks.length > 0 ? <Tasks x={tasks}
+        onDelete={deleteTask}
+        onToggle={toggleReminder} /> : <h3>Find things to do cuzzy</h3>}
     </div>
-//onDelete: state get passed down, action pass up
+    //onDelete: state get passed down, action pass up
 
 
     //<h2></h2> <- Try this
