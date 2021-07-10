@@ -11,7 +11,7 @@ const Task = ({task,onDelete,onToggle}) => {
         onDoubleClick={()=>onToggle(task.id)}>
             <h3>
                 {task.text} 
-                <FaTimes style={{color:"blue", cursor: "pointer"}} 
+                <FaTimes className="x-button"
                 onClick={() => onDelete(task.id)}/>
             </h3>
             <p>Time: {task.date} at {task.time}</p>

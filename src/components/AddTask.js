@@ -27,9 +27,9 @@ const AddTask = ({ onAdd }) => {
         onAdd({text, day, reminder});
         //onAdd is a function cuzzy
 
-        setText('');
+        setText(''); //this will reset the value of input box
         setDay('');
-        setReminder(false);
+        setReminder(false); //(1*)
         //(1*) this alone does not reset the tickbox, it will be a mismatch between the UI and data 
         //(1*) to solve this you have to put in checked={reminder} (pass reminder in as a prop)
     }

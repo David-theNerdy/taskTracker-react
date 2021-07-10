@@ -5,19 +5,15 @@ import React from 'react';
 import Button from './Button';
 
 
-const Header = ({title}) => {
-
-    let onClick = () =>{
-        console.log("click")
-    }
+const Header = ({title, onAdd, showAdd}) => {
 
     return (
         <header className='header'>
             <h1>{title}</h1>
             <Button
-             color="black" 
-             text="Add" 
-             onClick = {onClick} //there are many other events that you can add double-click, summit,..
+             color={showAdd ? "gray": "black"} 
+             text= {showAdd ? "Close" : "Add"} 
+             onClick = {onAdd} //there are many other events that you can add double-click, summit,..
              />
         </header>
         
@@ -25,7 +21,7 @@ const Header = ({title}) => {
 }
 
 Header.defaultProps ={
-    title: 'Task Tracker',
+    title: "Task tracker",
 }
 Header.propTypes = {
     title: PropTypes.string.isRequired,
