@@ -5,7 +5,8 @@ import { useState, useEffect } from 'react';
 import  AddTask  from "./components/AddTask";
 import Footer from "./components/Footer";
 import About from "./components/About";
-import { BrowserRouter as Router, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Route} from 'react-router-dom';
+
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
   const fetchTasks = async () =>{
     const res = await fetch('http://localhost:5000/tasks');           //res: response, fetch return a promise
     const data = await res.json();
+    
     return data;
   }
 
@@ -83,8 +85,8 @@ function App() {
     // this work but it will list the changed task to the bottom, you know why
   };
 
+   return (
 
-  return (
     <Router>
     <div className="container">
       <Header 

@@ -6,7 +6,7 @@ const AddTask = ({ onAdd }) => {
     let [text, setText] = useState("");
     let [date, setDay] = useState("");
     let [reminder, setReminder] = useState(false);
-
+    let [time, setTime] = useState("");
 
     const onSubmit=(el) =>{
         el.preventDefault();
@@ -24,12 +24,13 @@ const AddTask = ({ onAdd }) => {
             return;
             //if there is no return here, how it can potentially affect the code?
         }
-        onAdd({text, date, reminder});
+        onAdd({text, date, reminder,time});
         //onAdd is a function cuzzy
 
         setText(''); //this will reset the value of input box
         setDay('');
         setReminder(false); //(1*)
+        setTime('')
         //(1*) this alone does not reset the tickbox, it will be a mismatch between the UI and data 
         //(1*) to solve this you have to put in checked={reminder} (pass reminder in as a prop)
     }
@@ -45,9 +46,13 @@ const AddTask = ({ onAdd }) => {
 
             <div className="form-control">
                 <label htmlFor="">Date and Time</label>
-                <input type="text" placeholder="Add Day & Time"
+                <input type="date" placeholder="Add Date"
                 value={date}
                 onChange={(el)=> setDay(el.target.value)} />
+
+                <input type="time" placeholder="Time"
+                value={time}
+                onChange={(el)=> setTime(el.target.value)} />
             </div>
 
             <div className="form-control form-control-check">
