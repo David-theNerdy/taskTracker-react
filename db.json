@@ -1,25 +1,23 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "text": "Doctore App",
-      "date": "Monday",
-      "time": "9pm",
-      "reminder": true
-    },
-    {
-      "id": 2,
-      "text": "Meeting",
-      "date": "Tuesday",
-      "time": "6am",
-      "reminder": true
-    },
-    {
       "id": 3,
       "text": "Study",
       "date": "Wed",
       "time": "12m",
       "reminder": false
+    },
+    {
+      "text": "Shopping",
+      "date": "Monday",
+      "reminder": true,
+      "id": 9764545
+    },
+    {
+      "text": "Work-out",
+      "date": "Today at 10pm",
+      "reminder": false,
+      "id": 9766501
     }
   ]
 }

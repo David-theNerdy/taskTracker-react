@@ -14,7 +14,7 @@ const Task = ({task,onDelete,onToggle}) => {
                 <FaTimes className="x-button"
                 onClick={() => onDelete(task.id)}/>
             </h3>
-            <p>Time: {task.date} at {task.time}</p>
+            <p>{task.date}</p>
         </div>
     )
 }

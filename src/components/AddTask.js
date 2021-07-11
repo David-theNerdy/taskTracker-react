@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const AddTask = ({ onAdd }) => {
     let [text, setText] = useState("");
-    let [day, setDay] = useState("");
+    let [date, setDay] = useState("");
     let [reminder, setReminder] = useState(false);
 
 
@@ -19,12 +19,12 @@ const AddTask = ({ onAdd }) => {
             //if there is no return here, how it can potentially affect the code?
             //if there is no return, still sumit the data, return stop that from happenning
         }
-        if(!day){
+        if(!date){
             alert("Please add a day");
             return;
             //if there is no return here, how it can potentially affect the code?
         }
-        onAdd({text, day, reminder});
+        onAdd({text, date, reminder});
         //onAdd is a function cuzzy
 
         setText(''); //this will reset the value of input box
@@ -44,9 +44,9 @@ const AddTask = ({ onAdd }) => {
             </div>
 
             <div className="form-control">
-                <label htmlFor="">Day and Time</label>
+                <label htmlFor="">Date and Time</label>
                 <input type="text" placeholder="Add Day & Time"
-                value={day}
+                value={date}
                 onChange={(el)=> setDay(el.target.value)} />
             </div>
 
