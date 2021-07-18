@@ -24,7 +24,7 @@ const AddTask = ({ onAdd }) => {
             return;
             //if there is no return here, how it can potentially affect the code?
         }
-        onAdd({text, date, reminder,time});
+        onAdd({text, date, reminder, time});
         //onAdd is a function cuzzy
 
         setText(''); //this will reset the value of input box
